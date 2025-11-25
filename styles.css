@@ -484,6 +484,49 @@ body {
     color: #718096;
 }
 
+/* Percentage Results Container */
+.percentage-results-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.percentage-result-card {
+    background: linear-gradient(135deg, #fef5e7 0%, #fdebd0 100%);
+    border: 2px solid #f9d99b;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.percentage-result-card h3 {
+    color: #7d5a29;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.percentage-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #d68910;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.percentage-value .unit {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #7d5a29;
+}
+
+.percentage-description {
+    font-size: 0.75rem;
+    color: #7d5a29;
+}
+
 .overall-summary {
     background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
     border: 2px solid #bee3f8;
@@ -589,6 +632,20 @@ body {
     }
 
     .final-value .unit {
+        font-size: 0.8rem;
+    }
+
+    /* Percentage Results - Tablet */
+    .percentage-results-container {
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+
+    .percentage-value {
+        font-size: 2.25rem;
+    }
+
+    .percentage-value .unit {
         font-size: 0.8rem;
     }
 }
@@ -756,6 +813,29 @@ body {
     }
 
     .final-value .unit {
+        font-size: 0.75rem;
+    }
+
+    /* Percentage Results - Mobile */
+    .percentage-results-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .percentage-result-card {
+        padding: 20px;
+    }
+
+    .percentage-result-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .percentage-value {
+        font-size: 2rem;
+    }
+
+    .percentage-value .unit {
         font-size: 0.75rem;
     }
 }

@@ -308,6 +308,10 @@ function calculateResults() {
     // Calculate Dose Total and Dose/Peso
     const doseTotal = sumOfAverages + uiFixa;
     const dosePorPeso = doseTotal / peso;
+    
+    // Calculate percentages
+    const regularPercentage = (sumOfAverages / doseTotal) * 100;
+    const fixaPercentage = (uiFixa / doseTotal) * 100;
 
     // Display all final results in a row
     html += `
@@ -328,6 +332,23 @@ function calculateResults() {
                 <h3>Dose / Peso</h3>
                 <div class="final-value">${dosePorPeso.toFixed(2)} <span class="unit">UI/kg</span></div>
                 <div class="final-description">Dose Total ÷ Peso</div>
+            </div>
+        </div>
+    `;
+
+    // Display percentages
+    html += `
+        <div class="percentage-results-container">
+            <div class="percentage-result-card">
+                <h3>Regular / Total</h3>
+                <div class="percentage-value">${regularPercentage.toFixed(1)} <span class="unit">%</span></div>
+                <div class="percentage-description">Percentual da Regular na Dose Total</div>
+            </div>
+            
+            <div class="percentage-result-card">
+                <h3>Fixa / Total</h3>
+                <div class="percentage-value">${fixaPercentage.toFixed(1)} <span class="unit">%</span></div>
+                <div class="percentage-description">Percentual da Fixa na Dose Total</div>
             </div>
         </div>
     `;
