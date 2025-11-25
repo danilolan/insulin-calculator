@@ -45,9 +45,15 @@ function generateTableRows() {
             input.dataset.day = index;
             input.dataset.period = period;
             
-            // Add input event to save data
+            // Add input event to save data and auto-focus
             input.addEventListener('input', (e) => {
                 saveInputData(index, period, e.target.value);
+                
+                // Auto-focus to next input when 2 digits are entered
+                const value = e.target.value;
+                if (value.length >= 2) {
+                    focusNextInput(e.target);
+                }
             });
 
             // Load saved data if exists
@@ -69,6 +75,16 @@ function saveInputData(dayIndex, period, value) {
     const key = `day${dayIndex}_${period}`;
     formData.bloodGlucose[key] = value;
     console.log(`Saved: ${key} = ${value}`);
+}
+
+// Focus next input
+function focusNextInput(currentInput) {
+    const allInputs = Array.from(document.querySelectorAll('#step1 .data-input'));
+    const currentIndex = allInputs.indexOf(currentInput);
+    
+    if (currentIndex >= 0 && currentIndex < allInputs.length - 1) {
+        allInputs[currentIndex + 1].focus();
+    }
 }
 
 // Attach event listeners
